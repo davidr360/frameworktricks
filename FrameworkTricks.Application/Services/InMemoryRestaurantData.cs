@@ -22,5 +22,10 @@ namespace FrameworkTricks.Application.Services
         {
             return restaurants.OrderBy(x => x.Name);
         }
+
+        public Restaurant GetBy(int id)
+        {
+            return restaurants.FirstOrDefault(x => x.Id == id);
+        }
     }
 }

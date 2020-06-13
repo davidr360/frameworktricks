@@ -1,0 +1,22 @@
+﻿@model FrameworkTricks.Application.Models.Restaurant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1 class="mb-4">Details for @Html.DisplayFor(x => x.Name)</h1>
+
+<ul class="list-group mb-4">
+    <li class="list-group-item">
+        <strong>@Html.DisplayNameFor(model => model.Name)</strong>: 
+        @Html.DisplayFor(model => model.Name)
+    </li>
+
+    <li class="list-group-item">
+        <strong>@Html.DisplayNameFor(model => model.Cuisine)</strong>: 
+        @Html.DisplayFor(model => model.Cuisine)
+    </li>
+</ul>
+
+@Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-success" })
+@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })

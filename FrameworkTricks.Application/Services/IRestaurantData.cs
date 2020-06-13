@@ -8,5 +8,6 @@ namespace FrameworkTricks.Application.Services
     public interface IRestaurantData
     {
         IEnumerable<Restaurant> GetAll();
+        Restaurant GetBy(int id);
     }
 }

@@ -21,5 +21,11 @@ namespace FrameworkTricks.Web.Controllers
             var model = data.GetAll();
             return View(model);
         }
+
+        public ActionResult Details(int id)
+        {
+            var model = data.GetBy(id);
+            return View(model);
+        }
     }
 }
