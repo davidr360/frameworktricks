@@ -4,14 +4,17 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">There are @Model.Count() restaurants in the database.</p>
-</div>
+    <section class="mb-4">
+        <h1>ASP.NET</h1>
+        <p class="lead">There are @Model.Count() restaurants in the database.</p>
+    </section>
 
-<ul>
-    @foreach (var restaurant in Model)
-    {
-        <li>@restaurant.Name</li>
-    }
-</ul>
+
+    <section>
+        <ul>
+            @foreach (var restaurant in Model)
+            {
+                <li>@restaurant.Name</li>
+            }
+        </ul>
+    </section>
