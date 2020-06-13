@@ -6,13 +6,12 @@ namespace FrameworkTricks.Application.Common
 {
     public abstract class Entity
     {
-        public virtual long Id { get; protected set; }
+        // TODO: Make this field's setter protected
+        public virtual int Id { get; set; }
 
         public override bool Equals(object obj)
         {
-            var other = obj as Entity;
-
-            if (ReferenceEquals(other, null))
+            if (!(obj is Entity other))
                 return false;
 
             if (ReferenceEquals(this, other))
