@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrameworkTricks.Application.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,17 @@ namespace FrameworkTricks.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IRestaurantData data;
+
+        public HomeController()
+        {
+            data = new InMemoryRestaurantData();
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var model = data.GetAll();
+            return View(model);
         }
 
         public ActionResult About()
