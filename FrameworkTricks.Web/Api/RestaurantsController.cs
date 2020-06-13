@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FrameworkTricks.Application.Models;
+using FrameworkTricks.Application.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,9 +11,16 @@ namespace FrameworkTricks.Web.Api
 {
     public class RestaurantsController : ApiController
     {
-        public string Get()
+        private readonly IRestaurantData data;
+
+        public RestaurantsController(IRestaurantData data)
         {
-            return "Hello!";
+            this.data = data;
+        }
+
+        public IEnumerable<Restaurant> Get()
+        {
+            return data.GetAll();
         }
     }
 }
