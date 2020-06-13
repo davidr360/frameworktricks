@@ -1,7 +1,28 @@
-﻿
+﻿@model IEnumerable<FrameworkTricks.Application.Models.Restaurant>
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h1>Hello from Restaurants!</h1>
+<h2 class="mb-4">Restaurants @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary float-right" })</h2>
 
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th>Cuisine Type</th>
+        <th></th>
+    </tr>
+
+@foreach (var restaurant in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => restaurant.Name)</td>
+        <td>Cuisine Type</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = restaurant.Id }, new { @class = "btn btn-sm btn-success" })
+            @Html.ActionLink("Details", "Details", new { id = restaurant.Id }, new { @class = "btn btn-sm btn-warning" })
+            @Html.ActionLink("Delete", "Delete", new { id = restaurant.Id }, new { @class = "btn btn-sm btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
