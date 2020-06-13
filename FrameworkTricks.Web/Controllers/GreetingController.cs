@@ -10,9 +10,14 @@ namespace FrameworkTricks.Web.Controllers
 {
     public class GreetingController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(string name)
         {
-            var model = new GreetingViewModel { Message = ConfigurationManager.AppSettings["message"] };
+            var model = new GreetingViewModel
+            {
+                Message = ConfigurationManager.AppSettings["message"],
+                Name = name
+            };
+
             return View(model);
         }
     }

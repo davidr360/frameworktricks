@@ -11,7 +11,7 @@ namespace FrameworkTricks.Web.App_Start
 {
     public class ContainerConfig
     {
-        // TODO: Basic Autofac configuration
+        // HACK: Basic Autofac configuration
         public static void RegisterContainer()
         {
             var builder = new ContainerBuilder();
