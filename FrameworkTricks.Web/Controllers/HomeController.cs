@@ -11,9 +11,9 @@ namespace FrameworkTricks.Web.Controllers
     {
         private readonly IRestaurantData data;
 
-        public HomeController()
+        public HomeController(IRestaurantData data)
         {
-            data = new InMemoryRestaurantData();
+            this.data = data;
         }
 
         public ActionResult Index()
