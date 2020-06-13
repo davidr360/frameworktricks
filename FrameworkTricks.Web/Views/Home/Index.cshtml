@@ -4,17 +4,5 @@
     ViewBag.Title = "Home Page";
 }
 
-    <section class="mb-4">
-        <h1>ASP.NET</h1>
-        <p class="lead">There are @Model.Count() restaurants in the database.</p>
-    </section>
-
-
-    <section>
-        <ul>
-            @foreach (var restaurant in Model)
-            {
-                <li>@restaurant.Name</li>
-            }
-        </ul>
-    </section>
+<h1>ASP.NET</h1>
+<p class="lead">There are @Model.Count() restaurants in the database.</p>
