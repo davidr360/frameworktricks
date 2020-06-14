@@ -10,5 +10,6 @@ namespace FrameworkTricks.Application.Services
         IEnumerable<Restaurant> GetAll();
         Restaurant GetBy(int id);
         void Add(Restaurant restaurant);
+        void Update(Restaurant restaurant);
     }
 }

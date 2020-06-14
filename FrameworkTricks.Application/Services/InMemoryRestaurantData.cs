@@ -33,5 +33,16 @@ namespace FrameworkTricks.Application.Services
             restaurants.Add(restaurant);
             restaurant.Id = restaurants.Max(x => x.Id) + 1;
         }
+
+        public void Update(Restaurant restaurant)
+        {
+            var existing = GetBy(restaurant.Id);
+
+            if (existing != null)
+            {
+                existing.Name = restaurant.Name;
+                existing.Cuisine = restaurant.Cuisine;
+            }
+        }
     }
 }

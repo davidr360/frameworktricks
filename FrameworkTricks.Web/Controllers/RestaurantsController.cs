@@ -24,10 +24,13 @@ namespace FrameworkTricks.Web.Controllers
             return View(model);
         }
 
-        // TODO: Implement an error page here for when model is null
         public ActionResult Details(int id)
         {
             var model = db.GetBy(id);
+
+            if (model is null)
+                return HttpNotFound();
+
             return View(model);
         }
 
@@ -41,8 +44,39 @@ namespace FrameworkTricks.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Restaurant restaurant)
         {
-            db.Add(restaurant);
+            if (ModelState.IsValid)
+            {
+                db.Add(restaurant);
+                return RedirectToAction(nameof(Details), new { restaurant.Id });
+            }                
+                
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var model = db.GetBy(id);
+
+            if (model is null)
+                return HttpNotFound();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Restaurant restaurant)
+        {
+            // TODO: Create a filter to remove the need for the repeated ModelState.IsValid block
+
+            if (ModelState.IsValid)
+            {
+                db.Update(restaurant);
+                return RedirectToAction(nameof(Details), new { restaurant.Id });
+            }
+
+            return View(restaurant);
         }
     }
 }

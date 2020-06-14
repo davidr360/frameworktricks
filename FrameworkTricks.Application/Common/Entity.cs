@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace FrameworkTricks.Application.Common
@@ -49,7 +50,7 @@ namespace FrameworkTricks.Application.Common
 
         private Type GetRealType()
         {
-            return GetRealType();
+            return GetType(); // TODO: Write unit tests for this
         }
     }
 }
