@@ -1,4 +1,5 @@
-﻿using FrameworkTricks.Application.Services;
+﻿using FrameworkTricks.Application.Models;
+using FrameworkTricks.Application.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,11 @@ namespace FrameworkTricks.Web.Controllers
         {
             var model = data.GetBy(id);
             return View(model);
+        }
+
+        public ActionResult Create()
+        {
+            return View();
         }
     }
 }
