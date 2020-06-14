@@ -43,6 +43,22 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+
+    @* HACK: To enable client-side validation you must:
+
+        1) Set ClientValidationEnabled and UnobtrusiveJavaScriptEnabled to true in Web.Config:
+
+        <configuration>
+            <appSettings>
+              <add key="ClientValidationEnabled" value="true" />
+              <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+            </appSettings>
+        </configuration>
+
+        2) Ensure that jquery.validation.unobtrusive.js is included AFTER the main jquery library
+    *@
+
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
