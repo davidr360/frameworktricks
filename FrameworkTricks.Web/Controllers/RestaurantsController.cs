@@ -13,9 +13,9 @@ namespace FrameworkTricks.Web.Controllers
     {
         private readonly IRestaurantData db;
 
-        public RestaurantsController(IRestaurantData data)
+        public RestaurantsController(IRestaurantData db)
         {
-            this.db = data;
+            this.db = db;
         }
 
         public ActionResult Index()
@@ -26,12 +26,12 @@ namespace FrameworkTricks.Web.Controllers
 
         public ActionResult Details(int id)
         {
-            var model = db.GetBy(id);
+            var restaurant = db.GetBy(id);
 
-            if (model is null)
+            if (restaurant is null)
                 return HttpNotFound();
 
-            return View(model);
+            return View(restaurant);
         }
 
         [HttpGet]
@@ -56,12 +56,12 @@ namespace FrameworkTricks.Web.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var model = db.GetBy(id);
+            var restaurant = db.GetBy(id);
 
-            if (model is null)
+            if (restaurant is null)
                 return HttpNotFound();
 
-            return View(model);
+            return View(restaurant);
         }
 
         [HttpPost]
