@@ -27,5 +27,11 @@ namespace FrameworkTricks.Application.Services
         {
             return restaurants.FirstOrDefault(x => x.Id == id);
         }
+
+        public void Add(Restaurant restaurant)
+        {
+            restaurants.Add(restaurant);
+            restaurant.Id = restaurants.Max(x => x.Id) + 1;
+        }
     }
 }

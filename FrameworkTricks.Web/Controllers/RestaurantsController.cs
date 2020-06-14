@@ -11,28 +11,37 @@ namespace FrameworkTricks.Web.Controllers
 {
     public class RestaurantsController : Controller
     {
-        private readonly IRestaurantData data;
+        private readonly IRestaurantData db;
 
         public RestaurantsController(IRestaurantData data)
         {
-            this.data = data;
+            this.db = data;
         }
 
         public ActionResult Index()
         {
-            var model = data.GetAll();
+            var model = db.GetAll();
             return View(model);
         }
 
         // TODO: Implement an error page here for when model is null
         public ActionResult Details(int id)
         {
-            var model = data.GetBy(id);
+            var model = db.GetBy(id);
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Restaurant restaurant)
+        {
+            db.Add(restaurant);
             return View();
         }
     }
