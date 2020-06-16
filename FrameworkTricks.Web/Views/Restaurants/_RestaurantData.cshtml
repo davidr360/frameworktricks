@@ -1,0 +1,14 @@
+﻿@model FrameworkTricks.Application.Models.Restaurant
+
+@*HACK: Placing this partial view in the Restaurants folder means it'll only be available to other views in the Restaurants folder.
+If you want partial views to be available elsewhere, they need to be the in Shared folder. This behaviour is configurable*@
+
+<tr>
+    <td>@Html.DisplayFor(x => Model.Name)</td>
+    <td>@Html.DisplayFor(x => Model.Cuisine)</td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-sm btn-success" })
+        @Html.ActionLink("Details", "Details", new { id = Model.Id }, new { @class = "btn btn-sm btn-warning" })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-sm btn-danger" })
+    </td>
+</tr>
