@@ -17,9 +17,11 @@ namespace FrameworkTricks.Web.App_Start
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterApiControllers(typeof(MvcApplication).Assembly);
 
-            builder.RegisterType<InMemoryRestaurantData>()
+            builder.RegisterType<SqlRestaurantData>()
                 .As<IRestaurantData>()
-                .SingleInstance();
+                .InstancePerRequest();
+
+            builder.RegisterType<FrameworkTricksDbContext>().InstancePerRequest();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
