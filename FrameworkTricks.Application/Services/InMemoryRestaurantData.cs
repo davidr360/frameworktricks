@@ -1,6 +1,7 @@
 ﻿using FrameworkTricks.Application.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace FrameworkTricks.Application.Services
 {
@@ -43,6 +44,14 @@ namespace FrameworkTricks.Application.Services
                 existing.Name = restaurant.Name;
                 existing.Cuisine = restaurant.Cuisine;
             }
+        }
+
+        public void Delete(int id)
+        {
+            var restaurant = GetBy(id);
+
+            if (restaurant != null)
+                restaurants.Remove(restaurant);
         }
     }
 }

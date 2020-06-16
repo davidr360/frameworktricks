@@ -11,5 +11,6 @@ namespace FrameworkTricks.Application.Services
         Restaurant GetBy(int id);
         void Add(Restaurant restaurant);
         void Update(Restaurant restaurant);
+        void Delete(int id);
     }
 }

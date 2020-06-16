@@ -1,0 +1,14 @@
+﻿@model FrameworkTricks.Application.Models.Restaurant
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h1 class="mb-4">Delete @Html.DisplayFor(x => x.Name)?</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+    <input type="submit" value="Delete" class="btn btn-primary" />
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger" })
+}

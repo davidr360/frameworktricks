@@ -78,5 +78,24 @@ namespace FrameworkTricks.Web.Controllers
 
             return View(restaurant);
         }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var restaurant = db.GetBy(id);
+
+            if (restaurant is null)
+                return HttpNotFound();
+
+            return View(restaurant);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, FormCollection form)
+        {
+            db.Delete(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
