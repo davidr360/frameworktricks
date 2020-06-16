@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace FrameworkTricks.Web.Controllers
 {
-    public class RestaurantsController : Controller
+    public class RestaurantsController : FrameworkTricksBaseController
     {
         private readonly IRestaurantData db;
 
@@ -73,6 +73,7 @@ namespace FrameworkTricks.Web.Controllers
             if (ModelState.IsValid)
             {
                 db.Update(restaurant);
+                AddAlertMessage("Restaurant updated");
                 return RedirectToAction(nameof(Details), new { restaurant.Id });
             }
 
