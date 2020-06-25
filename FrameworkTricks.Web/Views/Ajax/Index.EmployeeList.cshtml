@@ -1,0 +1,13 @@
+﻿@model IEnumerable<FrameworkTricks.Web.Controllers.Employee>
+
+@foreach (var employee in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(_ => employee.Name)</td>
+        <td>@Html.DisplayFor(_ => employee.DateOfBirth)</td>
+        <td>
+            @Ajax.ActionLink("Edit", "Edit", new { id = employee.Id }, new AjaxOptions { UpdateTargetId = "commands" }, new { @class = "btn btn-sm btn-success" })
+            @Ajax.ActionLink("Delete", "Delete", new { id = employee.Id }, new AjaxOptions { UpdateTargetId = "employee-list", HttpMethod = "POST" }, new { @class = "btn btn-sm btn-danger" })
+        </td>        
+    </tr>
+}

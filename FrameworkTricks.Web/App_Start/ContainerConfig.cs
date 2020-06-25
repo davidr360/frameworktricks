@@ -2,6 +2,7 @@
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using FrameworkTricks.Application.Services;
+using FrameworkTricks.Web.Controllers;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -20,6 +21,8 @@ namespace FrameworkTricks.Web.App_Start
             builder.RegisterType<SqlRestaurantData>()
                 .As<IRestaurantData>()
                 .InstancePerRequest();
+
+            builder.RegisterType<EmployeeData>().SingleInstance();
 
             builder.RegisterType<FrameworkTricksDbContext>().InstancePerRequest();
 

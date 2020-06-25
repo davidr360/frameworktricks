@@ -20,6 +20,9 @@
                     <li class="nav-item">
                         @Html.ActionLink("Restaurants", "Index", "Restaurants", null, new { @class = "nav-link" })
                     </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Ajax Examples", "Index", "Ajax", null, new { @class = "nav-link" })
+                    </li>
                 </ul>
             </div>
         </div>
@@ -33,10 +36,6 @@
         }
 
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<FrameworkTricks.Web.Controllers.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row">
+    <div class="col-lg-7">
+        <h2 class="mb-4">Ajax Examples @Ajax.ActionLink("Create New", "Create", null, new AjaxOptions { UpdateTargetId = "commands" }, new { @class = "btn btn-primary float-right" })</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="employee-list">
+                @Html.Partial("Index.EmployeeList", Model)
+            </tbody>
+        </table>
+    </div>
+    <div id="commands" class="col-lg-4 offset-1">
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
