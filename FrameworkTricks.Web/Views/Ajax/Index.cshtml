@@ -3,10 +3,9 @@
     ViewBag.Title = "Index";
 }
 
-
 <div class="row">
     <div class="col-lg-7">
-        <h2 class="mb-4">Ajax Examples @Ajax.ActionLink("Create New", "Create", null, new AjaxOptions { UpdateTargetId = "commands" }, new { @class = "btn btn-primary float-right" })</h2>
+        <h2 class="mb-4">Ajax Examples @Ajax.ActionLink("Create New", "Create", null, new AjaxOptions { UpdateTargetId = "commands", OnComplete = "ajaxComplete" }, new { @class = "btn btn-primary float-right" })</h2>
 
         <table class="table">
             <thead>
@@ -28,4 +27,17 @@
 @section scripts
 {
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+    <script>
+
+        //$.validator.methods.date = function (value, element) {
+        //    return this.optional(element) || Globalize.parseDate(value, "d/M/y", "en");
+        //}
+        // TODO: Install Globalize and implement this override globally
+
+        function ajaxComplete() {
+            $.validator.unobtrusive.parse('form');
+            $(".datepicker").datepicker({ dateFormat: "dd/mm/yy" });
+        }
+    </script>
 }
