@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace FrameworkTricks.Web.Controllers
 {
-    public class CustomActionResultsController : FrameworkTricksBaseController
+    public class ActionResultController : FrameworkTricksBaseController
     {
         public ActionResult Index()
         {
