@@ -1,6 +1,5 @@
-﻿@model IEnumerable<FrameworkTricks.Web.Controllers.Employee>
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Ajax Examples";
 }
 
 <div class="row">
@@ -16,7 +15,7 @@
                 </tr>
             </thead>
             <tbody id="employee-list">
-                @Html.Partial("Index.EmployeeList", Model)
+                @Html.Action("EmployeeList")
             </tbody>
         </table>
     </div>

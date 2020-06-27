@@ -19,8 +19,7 @@ namespace FrameworkTricks.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var model = db.GetEmployees();
-            return View(model);
+            return View();
         }
 
         [HttpGet]
