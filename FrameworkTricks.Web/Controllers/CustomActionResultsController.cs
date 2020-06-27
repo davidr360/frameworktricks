@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace FrameworkTricks.Web.Controllers
 {
-    public class ActionResultsController : FrameworkTricksBaseController
+    public class CustomActionResultsController : FrameworkTricksBaseController
     {
         public ActionResult Index()
         {
@@ -17,6 +17,12 @@ namespace FrameworkTricks.Web.Controllers
         {
             var cats = GetCats();
             return XmlResult(cats);
+        }
+
+        public ActionResult Csv()
+        {
+            var cats = GetCats();
+            return CsvResult(cats, "FavouriteCats.csv");
         }
 
         private IEnumerable<Cat> GetCats()

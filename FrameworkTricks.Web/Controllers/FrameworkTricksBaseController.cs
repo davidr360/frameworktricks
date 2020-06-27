@@ -1,4 +1,5 @@
 ﻿using FrameworkTricks.Web.ActionResults;
+using System.Collections;
 using System.Web.Mvc;
 
 namespace FrameworkTricks.Web.Controllers
@@ -14,6 +15,11 @@ namespace FrameworkTricks.Web.Controllers
         public XmlResult XmlResult(object data)
         {
             return new XmlResult(data);
+        }
+
+        public CsvResult CsvResult(IEnumerable data, string fileDownloadName)
+        {
+            return new CsvResult(data, fileDownloadName);
         }
     }
 }

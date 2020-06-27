@@ -3,6 +3,8 @@ using System.Xml.Serialization;
 
 namespace FrameworkTricks.Web.ActionResults
 {
+    // HACK: Custom Action Result which inherits from the ActionResult base class
+
     public class XmlResult : ActionResult
     {
         private readonly object data;
