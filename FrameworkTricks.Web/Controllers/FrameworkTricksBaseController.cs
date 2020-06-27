@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using FrameworkTricks.Web.ActionResults;
+using System.Web.Mvc;
 
 namespace FrameworkTricks.Web.Controllers
 {
@@ -8,6 +9,11 @@ namespace FrameworkTricks.Web.Controllers
         public void AddAlertMessage(string message)
         {
             TempData["Message"] = message;
+        }
+
+        public XmlResult XmlResult(object data)
+        {
+            return new XmlResult(data);
         }
     }
 }
