@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace FrameworkTricks.Web.ActionResults
 {
+    // HACK: Custom ActionResult which inherits from another ActionResult
+
     public class CsvResult : FileResult
     {
         private readonly IEnumerable data;
